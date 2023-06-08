@@ -11,7 +11,7 @@ procesor Intel CORE i7 oraz kartę graficzną NVIDIA GEFORCE GTX 1660Ti.
 <br>Aby skorzystać z jednego z programów należy uruchomić wyżej wymieniony program QGIS na komputerze użytkownika, na pasku poleceń 
 skorzystać z opcji "Wtyczki" następnie "Zarządzanie wtyczkami" i .......
 
-***Funkcjonalność i posługiwanie się programami*** 
+***Funkcjonalność i posługiwanie się wtyczką*** 
 <br>Aby skorzystać z funkcji obliczającej różnice wysokosci pomiędzy punktami, należy wybrać narzędzie do zaznaczania obiektów prostokątem 
 lub kliknięciem; zaznaczyć interesujące punkty oraz uruchomić wtyczkę (w tym celu wybrać z paska poleceń "Wtyczki", następnie "testowa"). 
 Pokaże się wyskakujące okno, na którym zaprezentowana jest warstwa, a poniżej należy kliknąć przycisk "Oblicz różnice wysokości". 
