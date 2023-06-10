@@ -38,15 +38,8 @@ class Test_PluginDialog(QtWidgets.QDialog, FORM_CLASS):
         """Constructor."""
         super(Test_PluginDialog, self).__init__(parent)
         self.setupUi(self)
-        self.pushButton.clicked.connect(self.count_selected_elements)
         self.pushButton_2.clicked.connect(self.count_height)
         self.pushButton_3.clicked.connect(self.count_p)
-        
-    def count_selected_elements(self):
-        #number_of_selected_elements = 10
-        selected_Features=self.mMapLayerComboBox_Layers.currentLayer().selectedFeatures()
-        number_of_selected_elements= len(selected_Features)
-        self.label.setText(str(f'wybrano: {number_of_selected_elements} elementów'))
         
     def count_height(self):
         if self.mMapLayerComboBox_Layers.currentLayer() is None:
