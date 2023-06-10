@@ -1,5 +1,8 @@
 # Informacje dotyczące projektu 
 
+"Testowa" to wtyczka QGIS, która umożliwia użytkownikom wykonywanie obliczeń związanych z wysokościami i polami powierzchni na podstawie
+wybranych cech w warstwie. Wtyczka udostępnia okno dialogowe z różnymi funkcjami.
+
 ***Wtyczka QGIS - wymagania do jego uruchomienia***
 <br> Przedstawiony program, został napisany dla programu QGIS-a wersja 3.28.5 - Firenze, za pomocą języka Python wersja 3.9.5 oraz QTDesigner wersja 5.15.3. 
 Ponadto, został napisany na systemie operacyjnym Windows 10, 64-bitowym.
@@ -16,14 +19,16 @@ Warto zaznaczyć, iż dane importowane do pliku QGIS muszą zawierać współrz�
 innych układów. To, czy dane spełniają powyższy warunek można sprawdzić uruchamiając tabelę atrybutów.
 
 ***Funkcjonalność i posługiwanie się wtyczką*** 
+***Liczenie przewyższenia*** 
 <br>Aby skorzystać z funkcji obliczającej różnice wysokosci pomiędzy punktami, należy wybrać narzędzie do zaznaczania obiektów prostokątem 
 lub kliknięciem; zaznaczyć interesujące punkty oraz uruchomić wtyczkę (w tym celu wybrać z paska poleceń "Wtyczki", następnie "testowa"). 
 Pokaże się wyskakujące okno, na którym zaprezentowana jest warstwa, a poniżej należy kliknąć przycisk "Oblicz różnice wysokości". 
 Obliczone różnice wyświetlą się na poniższej konsoli wraz z odpowiednią jednostką - [m]. Warto zaznaczyć, iż jeśli użytkownik zaznaczy
 więcej niż 2 elementy, program zwróci komunikat o błędzie, gdyż różnice obliczane są dla dwóch punktów. To samo tyczy się zaznaczenia
 zbyt małej liczby elementów. Dodano także zabezpieczenie obejmujące wybór warstwy. Jeżeli takowa nie została wybrana, wyświetli odpowiedni komunikat
-na konsoli programu.
+na konsoli programu. 
 <br>
+***Liczenie pola powierzchni*** 
 <br>Aby skorzystać z funkcji obliczającej pola powierzchni pomiędzy punktami, należy wybrać narzędzie do zaznaczania obiektów prostokątem 
 lub kliknięciem; zaznaczyć interesujące punkty oraz uruchomić wtyczkę (w tym celu wybrać z paska poleceń "Wtyczki", następnie "testowa"). 
 Pokaże się wyskakujące okno, na którym zaprezentowana jest warstwa, a poniżej należy kliknąć przycisk "Oblicz pole powierzchni". 
