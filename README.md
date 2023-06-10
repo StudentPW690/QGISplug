@@ -1,7 +1,7 @@
 # Informacje dotyczące projektu 
 
 ***Wtyczka QGIS - wymagania do jego uruchomienia***
-<br> Przedstawiony program, został napisany dla programu QGIS-a wersja 3.28.5 - Firenze, za pomocą języka Python wersja 3.9.5. 
+<br> Przedstawiony program, został napisany dla programu QGIS-a wersja 3.28.5 - Firenze, za pomocą języka Python wersja 3.9.5 oraz QTDesignera wersja 5.15.3. 
 Został on napisany na systemie operacyjnym Windows 10, 64-bitowym.
 Jeden z komputerów jest wyposażony w kartę graficzną NVIDIA GEFORCE GTX 1660Ti, procesor AMD Ryzen 7 4800H with Radeon Graphics oraz
 pamięć RAM o wielkości 16 GB.
@@ -9,7 +9,9 @@ pamięć RAM o wielkości 16 GB.
 procesor Intel CORE i7 oraz kartę graficzną NVIDIA GEFORCE GTX 1660Ti.
 
 <br>Aby skorzystać z jednego z programów należy uruchomić wyżej wymieniony program QGIS na komputerze użytkownika, na pasku poleceń 
-skorzystać z opcji "Wtyczki" następnie "Zarządzanie wtyczkami" i .......
+skorzystać z opcji "Wtyczki" następnie "Zarządzanie wtyczkami" i pobrać wtyczkę o nazwie "testowa". Należy także wczytać warstwę z danymi współrzędnymi 
+płaskimi i wysokościowymi. W tym celu należy wejść na stronę https://www.geoportal.gov.pl/uslugi/usluga-pobierania-wfs, a następnie skopiować link do
+podstawowej osnowy geodezyjnej wysokościowej i wczytać ją do QGIS (w lewym oknie zadań wybrać usługę WFS i za pomocą nowego połączenia wgrać punkty).  
 
 ***Funkcjonalność i posługiwanie się wtyczką*** 
 <br>Aby skorzystać z funkcji obliczającej różnice wysokosci pomiędzy punktami, należy wybrać narzędzie do zaznaczania obiektów prostokątem 
@@ -26,4 +28,6 @@ Obliczona wartość wyświetli się na poniższej konsoli wraz z odpowiednią je
 zbyt małą liczbę elementów, program zwróci komunikat o tym fakcie. Dlatego należy wybrać więcej niż 2 punkty. Program liczy pole powierzchni 
 metodą Gaussa, czy metodą opierającą się na różnicach współrzędnych.
 <br>
+<br>***Znane błędy***
+<br>Pobrane dane do aplikacji QGIS są w układzie 1992. Inne układy nie są obsługiwane.
 <br> ***Program został przetestowany i nie prezentuje innych nietypowych zachowań, o ile jest użytkowany zgodnie z powyższą instrukcją.***
