@@ -22,13 +22,13 @@
  ***************************************************************************/
 """
 import os
-
-import numpy as np
-from scipy.spatial import Delaunay
-from math import sqrt
 from qgis.PyQt import uic
 from qgis.PyQt import QtWidgets
 from qgis.core import QgsMessageLog, Qgis
+import numpy as np
+import os
+from qgis.core import QgsProject, QgsPointXY
+from qgis.utils import iface
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'test_plugin_dialog_base.ui'))
@@ -72,24 +72,28 @@ class Test_PluginDialog(QtWidgets.QDialog, FORM_CLASS):
         QgsMessageLog.logMessage('Różnica wysokości między punktami wynosi: ' + str(roznica_H) + ' m' , ' Różnica wysokości', Qgis.Success)
     
     def count_p(self):
-        zaznaczone_elementy = self.mMapLayerComboBox_Layers.currentLayer().selectedFeatures()
-        if len(zaznaczone_elementy) < 3:
-            self.label.setText(str('Wybierz co najmniej 3 punkty na warstwie.'))
-            QgsMessageLog.logMessage('Wybierz co najmniej 3 punkty na warstwie.', 'Pole powierzchni', Qgis.Warning)
-            return False
+        obiekty = self.mMapLayerComboBox_Layers.currentLayer().selectedFeatures()
+        punkty = []
+        for o in obiekty:
+            x = float(o.attribute('x1992'))
+            y = float(o.attribute('y1992'))
+            x = float(o.geometry().asPoint().x())
+            y = float(o.geometry().asPoint().y())
+            p = QgsPointXY(x, y)
+            punkty.append(p)
+        if len(obiekty)<3:
+            iface.messageBar().pushMessage("Pole powierzchni", 'Aby policzyć pole powierzchni wybierz co najmniej TRZY PUNKTY', level = Qgis.Warning)
+            return
+        if len(obiekty)>2:
+            pole = 0
+            dl = len(punkty)
+            for e in range(dl):
+                a = (e + 1) % dl
+                pole += (punkty[a].x() + punkty[e].x()) * (punkty[a].y() - punkty[e].y())
+            pole /= 2
+            pole = round(abs(pole/10000), 3)
+            pole = self.label.setText(str(pole) +'ha')
+            QgsMessageLog.logMessage('Pole powierzchni między wybranymi punktami wynosi: {pole} ha', level = Qgis.Success)
+        
+            iface.messageBar().pushMessage("Pole powierzchni", 'Pole powierzchni zostało policzone', level = Qgis.Success)
 
-        xy = np.array([(float(p['x1992']), float(p['y1992'])) for p in zaznaczone_elementy])
-
-        tri = Delaunay(xy)
-
-        pole_P = 0.0
-        for simp in tri.simplices:
-            a, b, c = simp
-            x1, y1 = xy[a]
-            x2, y2 = xy[b]
-            x3, y3 = xy[c]
-            pole_P += abs(0.5 * (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)))
-
-        pole_P = round(pole_P, 3)
-        self.label.setText(str(f'pole powierzchni wynosi: {pole_P:.3f} m²'))
-        QgsMessageLog.logMessage('Pole powierzchni między zaznaczonymi punktami: ' + str(pole_P) + ' m²', 'Pole powierzchni', Qgis.Success)
