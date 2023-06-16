@@ -34,9 +34,9 @@ na konsoli programu.
 <br>Aby skorzystać z funkcji obliczającej pola powierzchni pomiędzy punktami, należy wybrać narzędzie do zaznaczania obiektów prostokątem 
 lub kliknięciem; zaznaczyć interesujące punkty oraz uruchomić wtyczkę (w tym celu wybrać z paska poleceń "Wtyczki", następnie "testowa"). 
 Pokaże się wyskakujące okno, na którym zaprezentowana jest warstwa, a poniżej należy kliknąć przycisk "Oblicz pole powierzchni". 
-Obliczona wartość wyświetli się na poniższej konsoli wraz z odpowiednią jednostką - [*m<sup>2</sup>*]. Warto zaznaczyć, iż jeśli użytkownik zaznaczy
-zbyt małą lub zbyt dużą liczbę elementów, program zwróci komunikat o tym fakcie. Dlatego należy wybrać dokładnie 3 punkty. Program liczy pole powierzchni 
-metodą Gaussa, czyli metodą opierającą się na różnicach współrzędnych.Dodano także zabezpieczenie obejmujące wybór warstwy. Jeżeli takowa nie została 
+Obliczona wartość wyświetli się na poniższej konsoli wraz z odpowiednią jednostką - [ha]. Warto zaznaczyć, iż jeśli użytkownik zaznaczy
+zbyt małą liczbę elementów, program zwróci komunikat o tym fakcie. Dlatego należy wybrać więcej niż 2 punkty. Program liczy pole powierzchni 
+metodą Gaussa, czyli metodą opierającą się na różnicach współrzędnych. Dodano także zabezpieczenie obejmujące wybór warstwy. Jeżeli takowa nie została 
 wybrana, wyświetli odpowiedni komunikat na konsoli programu.
 <br>
 <br> ***Program został przetestowany i nie prezentuje innych nietypowych zachowań, o ile jest użytkowany zgodnie z powyższą instrukcją.***
