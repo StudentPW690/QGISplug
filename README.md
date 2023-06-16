@@ -15,20 +15,22 @@ procesor Intel CORE i7 oraz kartę graficzną NVIDIA GEFORCE GTX 1660Ti.
 skorzystać z opcji "Wtyczki" następnie "Zarządzanie wtyczkami" i pobrać wtyczkę o nazwie "testowa". Należy także wczytać warstwę z danymi współrzędnymi 
 płaskimi i wysokościowymi. W tym celu należy wejść na stronę https://www.geoportal.gov.pl/uslugi/usluga-pobierania-wfs, a następnie skopiować link do
 podstawowej osnowy geodezyjnej wysokościowej i wczytać ją do QGIS (w lewym oknie zadań wybrać usługę WFS i za pomocą nowego połączenia wgrać punkty). 
+Ważnym elementem jest tabela atrybutów, która mówi użytkownikowi jakie elementy zawierają dane. W tym programie zostały wykorzystane kolumny 'h_plevrf2007nh'
+do obliczenia wysokości oraz 'x1992', 'y1992' do obliczenia pola powierzchni. W tabeli atrybutów wymagany jest typ double NULL. 
 Warto zaznaczyć, iż dane importowane do pliku QGIS muszą zawierać współrzędne płaskie (x,y) oraz wysokościowe (h) w układzie 1992. Program nie obsługuje 
 innych układów. To, czy dane spełniają powyższy warunek można sprawdzić uruchamiając tabelę atrybutów.
 
 ***Funkcjonalność i posługiwanie się wtyczką*** 
-***Liczenie przewyższenia*** 
+***Liczenie przewyższenia***
 <br>Aby skorzystać z funkcji obliczającej różnice wysokosci pomiędzy punktami, należy wybrać narzędzie do zaznaczania obiektów prostokątem 
 lub kliknięciem; zaznaczyć interesujące punkty oraz uruchomić wtyczkę (w tym celu wybrać z paska poleceń "Wtyczki", następnie "testowa"). 
 Pokaże się wyskakujące okno, na którym zaprezentowana jest warstwa, a poniżej należy kliknąć przycisk "Oblicz różnice wysokości". 
 Obliczone różnice wyświetlą się na poniższej konsoli wraz z odpowiednią jednostką - [m]. Warto zaznaczyć, iż jeśli użytkownik zaznaczy
 więcej niż 2 elementy, program zwróci komunikat o błędzie, gdyż różnice obliczane są dla dwóch punktów. To samo tyczy się zaznaczenia
 zbyt małej liczby elementów. Dodano także zabezpieczenie obejmujące wybór warstwy. Jeżeli takowa nie została wybrana, wyświetli odpowiedni komunikat
-na konsoli programu. 
+na konsoli programu.
 <br>
-***Liczenie pola powierzchni*** 
+***Liczenie pola powierzchni***
 <br>Aby skorzystać z funkcji obliczającej pola powierzchni pomiędzy punktami, należy wybrać narzędzie do zaznaczania obiektów prostokątem 
 lub kliknięciem; zaznaczyć interesujące punkty oraz uruchomić wtyczkę (w tym celu wybrać z paska poleceń "Wtyczki", następnie "testowa"). 
 Pokaże się wyskakujące okno, na którym zaprezentowana jest warstwa, a poniżej należy kliknąć przycisk "Oblicz pole powierzchni". 
